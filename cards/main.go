@@ -1,11 +1,14 @@
 package main
 
 func main() {
-	var cards = deck{"Ace of Diamonds", newCard()}
+	cards := deck{"Ace of Diamonds", newCard()}
 	// non-mutable
-	cards = append(cards, "Six of Diamonds")
+	cards = append(cards, "Six of Spades")
 
-	printDeck(cards)
+	var cards2 deck = newDeck()
+
+	cards.print()
+	cards2.print()
 }
 
 func newCard() string {
