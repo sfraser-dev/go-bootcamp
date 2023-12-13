@@ -7,18 +7,23 @@ import (
 )
 
 func main() {
-	// of type deckOfCards
-	cards := newDeckOfCards()
-	// cards.print()
-	
-	// hand, remainingCards := dealCards(cards, 5)
-	// hand.print()
-	// remainingCards.print()
+	// type deckOfCards
+	var cards deckOfCards = newDeckOfCards()
+
+	var (
+		hand           deckOfCards
+		remainingCards deckOfCards
+	)
+
+	hand, remainingCards = dealCards(cards, 5)
+	// assigning an unused variable to the blank identifier _ will silence the unused variable error
+	var _ = hand
+	var _ = remainingCards
 
 	// save to file
 	cards.writeToFile("mycards.log")
-	strRead:= cards.readFromFile("mycards.log")
-	fmt.Println(strRead)
+	cardRead := cards.readFromFile("mycards.log")
+	var _ = cardRead
 
 	// testing
 	gobootcamp.Saytop()

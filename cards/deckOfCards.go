@@ -20,6 +20,13 @@ func (doc deckOfCards) print() {
 	fmt.Print("\n")
 }
 
+// helper funtion
+func print(s []string) {
+	for i:=0; i<len(s); i++ {
+		fmt.Println(s[i])
+	} 
+}
+
 // (""like a method"")
 func (doc deckOfCards) deckOfCardsToSingleString() string {
 	stringOut := strings.Join(doc, ",")
@@ -36,13 +43,13 @@ func (doc deckOfCards) writeToFile(filename string) {
 }
 
 // (""like a method"")
-func (doc deckOfCards) readFromFile(filename string) string {
+func (doc deckOfCards) readFromFile(filename string) []string {
 	byteSlice, err := os.ReadFile(filename)
 	if err != nil {
 		fmt.Println("Error reading ", filename, ": ", err)
 		os.Exit(1)
 	}
-	return string(byteSlice)
+	return strings.Split((string(byteSlice)), ",")
 }
 
 // helper function
@@ -60,6 +67,6 @@ func newDeckOfCards() deckOfCards {
 }
 
 // helper function
-// func dealCards(d deckOfCards, handSize int) (deckOfCards, deckOfCards) {
-// 	return d[:handSize], d[handSize:]
-// }
+func dealCards(d deckOfCards, handSize int) (deckOfCards, deckOfCards) {
+	return d[:handSize], d[handSize:]
+}
