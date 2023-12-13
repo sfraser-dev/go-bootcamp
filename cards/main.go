@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
-
 	"bitbucket.org/weebucket/gobootcamp"
+	"fmt"
+	"math/rand"
+	"strings"
 )
 
 func main() {
@@ -11,25 +12,32 @@ func main() {
 	var cards deckOfCards = newDeckOfCards()
 
 	var (
-		hand           deckOfCards
-		remainingCards deckOfCards
+		currentHand           deckOfCards
+		currentRemainingCards deckOfCards
 	)
 
-	hand, remainingCards = dealCards(cards, 5)
-	// assigning an unused variable to the blank identifier _ will silence the unused variable error
-	var _ = hand
-	var _ = remainingCards
+	currentHand, currentRemainingCards = dealCards(cards, 5)
 
 	// save to file
 	cards.writeToFile("mycards.log")
-	cardRead := cards.readFromFile("mycards.log")
-	var _ = cardRead
+	cardsReadFromFile := cards.readFromFile("mycards.log")
 
 	// testing
-	gobootcamp.Saytop()
+	gobootcamp.SayTopLevel()
 	greetingStr := "Hello"
 	byteSlice := ([]byte(greetingStr))
 	fmt.Println(byteSlice)
 	fmt.Println(string(byteSlice))
+	words := strings.Fields("ink runs from the corners of my mouth")
+	rand.Shuffle(len(words), func(i, j int) {
+		words[i], words[j] = words[j], words[i]
+	})
+	fmt.Println(words)
 
+	// assigning an unused variable to the blank identifier _ will silence the unused variable error
+	_, _, _ = currentHand, currentRemainingCards, cardsReadFromFile
+	printDebug(false, []string{""})
+	cards.printDebug(false)
+	cards.shuffleTheCards()
+	cards.printDebug(true)
 }

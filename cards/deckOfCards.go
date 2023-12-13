@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
 )
@@ -12,7 +13,10 @@ type deckOfCards []string
 
 // (""like a method"")
 // receivers sets up methods on variables that we create. (d deck) is a receiver
-func (doc deckOfCards) print() {
+func (doc deckOfCards) printDebug(runIt bool) {
+	if !runIt {
+		return
+	}
 	fmt.Print("---------------------\n")
 	for i, card := range doc {
 		fmt.Printf("%02v: %17s\n", i+1, card)
@@ -20,11 +24,10 @@ func (doc deckOfCards) print() {
 	fmt.Print("\n")
 }
 
-// helper funtion
-func print(s []string) {
-	for i:=0; i<len(s); i++ {
-		fmt.Println(s[i])
-	} 
+func (doc deckOfCards) shuffleTheCards() {
+	rand.Shuffle(len(doc), func(i, j int) {
+		doc[i], doc[j] = doc[j], doc[i]
+	})
 }
 
 // (""like a method"")
@@ -50,6 +53,16 @@ func (doc deckOfCards) readFromFile(filename string) []string {
 		os.Exit(1)
 	}
 	return strings.Split((string(byteSlice)), ",")
+}
+
+// helper funtion
+func printDebug(runIt bool, s []string) {
+	if !runIt {
+		return
+	}
+	for i := 0; i < len(s); i++ {
+		fmt.Println(s[i])
+	}
 }
 
 // helper function
