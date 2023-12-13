@@ -8,7 +8,7 @@ import (
 )
 
 // (""like a class"")
-// create a new type of "deck" which is a slice of string
+// create a new data type (deckOfCards) which is a string slice
 type deckOfCards []string
 
 // (""like a method"")
@@ -24,6 +24,7 @@ func (doc deckOfCards) printDebug(runIt bool) {
 	fmt.Print("\n")
 }
 
+// (""like a method"")
 func (doc deckOfCards) shuffleTheCards() {
 	rand.Shuffle(len(doc), func(i, j int) {
 		doc[i], doc[j] = doc[j], doc[i]

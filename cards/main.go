@@ -18,7 +18,7 @@ func main() {
 
 	currentHand, currentRemainingCards = dealCards(cards, 5)
 
-	// save to file
+	// write to file and read from file
 	cards.writeToFile("mycards.log")
 	cardsReadFromFile := cards.readFromFile("mycards.log")
 
