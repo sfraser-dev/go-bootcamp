@@ -25,4 +25,5 @@ func (dc deckOfCards) print() {
 	for i, card := range dc {
 		fmt.Printf("%2v: %17s\n", i, card)
 	}
+	fmt.Print("\n")
 }
