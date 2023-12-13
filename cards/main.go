@@ -1,16 +1,10 @@
 package main
 
+import "bitbucket.org/weebucket/gobootcamp"
+
 func main() {
-	cards := deck{"Ace of Diamonds", newCard()}
-	// non-mutable
-	cards = append(cards, "Six of Spades")
-
-	var cards2 deck = newDeck()
-
+	var cards deckOfCards = newDeckOfCards()
 	cards.print()
-	cards2.print()
-}
 
-func newCard() string {
-	return "Five of Diamonds"
+	gobootcamp.Saytop()
 }
