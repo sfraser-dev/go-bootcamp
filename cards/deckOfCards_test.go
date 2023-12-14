@@ -10,7 +10,7 @@ func Test_newDeckOfCards(t *testing.T) {
 
 	// number of cards generated
 	if len(d) != 52 {
-		t.Errorf("Expected 52 cards in a new deck but got %v", len(d))
+		t.Errorf("Expected fifty-two cards in a new deck but got %v", len(d))
 	}
 
 	// regex testing
@@ -19,25 +19,25 @@ func Test_newDeckOfCards(t *testing.T) {
 	re := regexp.MustCompile(`\b(of){1}\b\s+S[a-z]{4}s`)
 	found := re.FindAllString(dSingelString, -1)
 	if len(found) != 13 {
-		t.Errorf("Expected 13 Spades in the deck but got %v", len(found))
+		t.Errorf("Expected thirteen Spades in the deck but got %v", len(found))
 	}
 	// regex search for /of Hearts/
 	re = regexp.MustCompile(`\b(of){1}\b\s+H[a-z]{4}s`)
 	found = re.FindAllString(dSingelString, -1)
 	if len(found) != 13 {
-		t.Errorf("Expected 13 Hearts in the deck but got %v", len(found))
+		t.Errorf("Expected thirteen Hearts in the deck but got %v", len(found))
 	}
 	// regex search for /of Diamonds/
 	re = regexp.MustCompile(`\b(of){1}\b\s+D[a-z]{6}s`)
 	found = re.FindAllString(dSingelString, -1)
 	if len(found) != 13 {
-		t.Errorf("Expected 13 Diamonds in the deck but got %v", len(found))
+		t.Errorf("Expected thirteen Diamonds in the deck but got %v", len(found))
 	}
 	// regex search for /of Clubs/
 	re = regexp.MustCompile(`\b(of){1}\b\s+C[a-z]{3}s`)
 	found = re.FindAllString(dSingelString, -1)
 	if len(found) != 13 {
-		t.Errorf("Expected 13 Clubs in the deck but got %v", len(found))
+		t.Errorf("Expected thirteen Clubs in the deck but got %v", len(found))
 	}
 
 	// regex search for /Ace of/, /Two of/ ... /King of/, should be 4 of each
@@ -45,36 +45,38 @@ func Test_newDeckOfCards(t *testing.T) {
 	for i := 1; i <= 13; i++ {
 		switch i {
 		case 1:
-			search = "Ace\\s+of"
+			search = "Ace of"
 		case 2:
-			search = "Two\\s+of"
+			search = "Two of"
 		case 3:
-			search = "Three\\s+of"
+			search = "Three of"
 		case 4:
-			search = "Four\\s+of"
+			search = "Four of"
 		case 5:
-			search = "Five\\s+of"
+			search = "Five of"
 		case 6:
-			search = "Six\\s+of"
+			search = "Six of"
 		case 7:
-			search = "Seven\\s+of"
+			search = "Seven of"
 		case 8:
-			search = "Eight\\s+of"
+			search = "Eight of"
 		case 9:
-			search = "Nine\\s+of"
+			search = "Nine of"
 		case 10:
-			search = "Ten\\s+of"
+			search = "Ten of"
 		case 11:
-			search = "Jack\\s+of"
+			search = "Jack of"
 		case 12:
-			search = "Queen\\s+of"
+			search = "Queen of"
 		case 13:
-			search = "King\\s+of"
+			search = "King of"
+		default:
+			t.Error("Error, switch statement shouldn't reach here")
 		}
 		re = regexp.MustCompile(search)
 		found = re.FindAllString(dSingelString, -1)
 		if len(found) != 4 {
-			t.Errorf("Expected 4 '%s' in the deck but got %v", search, len(found))
+			t.Errorf("Expected four '%s' in the deck but got %v", search, len(found))
 		}
 	}
 }
