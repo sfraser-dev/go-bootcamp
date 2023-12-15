@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"regexp"
 	"testing"
 )
@@ -79,4 +80,22 @@ func Test_newDeckOfCards(t *testing.T) {
 			t.Errorf("Expected four '%s' in the deck but got %v", search, len(found))
 		}
 	}
+}
+
+func Test_saveDeckToFileAndReadDeckFromFile(t *testing.T) {
+	os.Remove("_deckTesting.log")
+
+	dOut := newDeckOfCards()
+
+	// write to file and read from file
+	dOut.writeToFile("_deckTesting.log")
+
+	dIn := readFromFile("_deckTesting.log")
+
+	if len(dIn) != 52 {
+		t.Errorf("expected the deck read from file to have 52 cards, instead it had %v", len(dIn))
+	}
+
+	os.Remove("_deckTesting.log")
+
 }

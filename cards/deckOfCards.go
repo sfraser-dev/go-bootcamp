@@ -46,8 +46,8 @@ func (doc deckOfCards) writeToFile(filename string) {
 	}
 }
 
-// (""like a method"")
-func (doc deckOfCards) readFromFile(filename string) []string {
+// helper function
+func readFromFile(filename string) []string {
 	byteSlice, err := os.ReadFile(filename)
 	if err != nil {
 		fmt.Println("Error reading ", filename, ": ", err)

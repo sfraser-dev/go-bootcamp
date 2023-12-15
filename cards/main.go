@@ -20,7 +20,7 @@ func main() {
 
 	// write to file and read from file
 	cards.writeToFile("mycards.log")
-	cardsReadFromFile := cards.readFromFile("mycards.log")
+	cardsReadFromFile := readFromFile("mycards.log")
 
 	// testing
 	gobootcamp.SayTopLevel()
