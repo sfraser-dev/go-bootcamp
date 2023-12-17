@@ -37,9 +37,9 @@ func main() {
 			"fred@example.com",
 			54321},
 	}
-	
+
 	// zero value initialisation of nick
-	var nick person 
+	var nick person
 	fmt.Println(greg)
 	fmt.Println(fred)
 	fmt.Printf("%+v\n", nick)
@@ -51,8 +51,17 @@ func main() {
 	nick.contactInfo.zipCode = 13579
 	nick.printInfo()
 
-	nickPtr := & nick
+	// creating a pointer to nick
+	//var nickPtr *person = &nick
+	nickPtr := &nick
+	// updating name passing NICKPTR to receiver
 	nickPtr.updateName("Nicholas")
 	nick.printInfo()
+
+	// updating by passing NICK to receiver by value (a shortcut)
+    // go will know that user meant to pass a pointer and adjust accordingly 
+	nick.updateName("Nickywicky")
+	nick.printInfo()
+
 
 }
