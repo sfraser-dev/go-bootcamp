@@ -1,4 +1,4 @@
-# Go programming
+# Go Programming
 
 ## Udemy
 
