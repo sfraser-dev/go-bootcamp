@@ -4,31 +4,49 @@ import "fmt"
 
 func main() {
 	// declare a map literally
-	colors_lit := map[string]string{
-		"red":   "ff0000",
-		"green": "4bb888",
+	colorsLiteral := map[string]string{
+		"red":   "#ff0000",
+		"green": "#4bb888",
+		"white": "#ffffff",
 	}
-	fmt.Println(colors_lit)
+	fmt.Println(colorsLiteral)
 
 	// declare a map using var
-	var colors_var = map [string]int {
+	var colorsVar = map[string]int{
 		"a": 1,
 		"b": 2,
 		"y": 25,
 		"z": 26,
 	}
-	fmt.Println(colors_var)
+	fmt.Println(colorsVar)
 
 	// declare a map by inferring
-	colors_infer := map[string]bool{
+	colorsInfer := map[string]bool{
 		"1": true,
 		"0": false,
 	}
-	fmt.Println(colors_infer)
+	fmt.Println(colorsInfer)
 
-	// declare a map using inbuild make function
-	colors_make := make(map[string]float32)
-	colors_make["price"] =  10.99
-	colors_make["discountPercentage"] =  15
-	fmt.Println(colors_make)
+	// declare a map using inbuilt make function
+	colorsMake := make(map[string]float32)
+	colorsMake["price"] = 10.99
+	colorsMake["discountPercentage"] = 15
+	fmt.Println(colorsMake)
+
+	// make and delete for maps
+	drinks := make(map[int]string)
+	drinks[10] = "Pepsi"
+	fmt.Println(drinks)
+	delete(drinks, 10)
+	fmt.Println(drinks)
+
+	// passing map as argument to function
+	mapPrint(colorsLiteral)
+}
+
+// map is a reference type, so true source of data changed
+func mapPrint(m map[string]string) {
+	for k, v := range m {
+		fmt.Print("key=", k, ", value=", v, "\n")
+	}
 }
