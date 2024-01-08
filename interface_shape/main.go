@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 type shape interface {
@@ -9,11 +10,13 @@ type shape interface {
 }
 
 type triangle struct {
+	// fields / properties
 	base   float64
 	height float64
 }
 
 type square struct {
+	// fields / properties
 	sideLength float64
 }
 
@@ -37,7 +40,7 @@ func (t triangle) getArea() float64 {
 }
 
 func (s square) getArea() float64 {
-	area := s.sideLength * s.sideLength
+	area := math.Pow(s.sideLength, 2)
 	return area
 }
 
