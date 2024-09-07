@@ -10,7 +10,7 @@ type contactInfo struct {
 type person struct {
 	firstName string
 	lastName  string
-	// shorthand for contactInfo contactInfo
+	// shorthand for contactInfo contactInfo (embedding)
 	contactInfo
 }
 
@@ -47,8 +47,10 @@ func main() {
 	// fill out nick's info
 	nick.firstName = "Nick"
 	nick.lastName = "Faldo"
-	nick.contactInfo.email = "nick@example.com"
-	nick.contactInfo.zipCode = 13579
+	//nick.contactInfo.email = "nick@example.com"
+	//nick.contactInfo.zipCode = 13579
+	nick.email = "nick@example.com"
+	nick.zipCode = 13579
 	nick.printInfo()
 
 	// creating a pointer to nick
@@ -62,6 +64,4 @@ func main() {
     // go will know that user meant to pass a pointer and adjust accordingly 
 	nick.updateName("Nickywicky")
 	nick.printInfo()
-
-
 }

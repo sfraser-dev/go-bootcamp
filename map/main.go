@@ -11,7 +11,7 @@ func main() {
 	}
 	fmt.Println(colorsLiteral)
 
-	// declare a map using var
+	// declare a map using var (variable declaration and initialization)
 	var colorsVar = map[string]int{
 		"a": 1,
 		"b": 2,
@@ -20,7 +20,7 @@ func main() {
 	}
 	fmt.Println(colorsVar)
 
-	// declare a map by inferring
+	// declare a map by inferring (short variable declaration)
 	colorsInfer := map[string]bool{
 		"1": true,
 		"0": false,

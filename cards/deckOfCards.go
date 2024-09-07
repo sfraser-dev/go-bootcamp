@@ -56,7 +56,7 @@ func readFromFile(filename string) []string {
 	return strings.Split((string(byteSlice)), ",")
 }
 
-// helper funtion
+// helper function
 func printDebug(runIt bool, s []string) {
 	if !runIt {
 		return

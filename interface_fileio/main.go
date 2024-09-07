@@ -9,7 +9,7 @@ import (
 func main() {
 	expectedNumOfArgs := 2
 	if len(os.Args) != expectedNumOfArgs {
-		fmt.Println("number of input args doe not equal", expectedNumOfArgs)
+		fmt.Println("number of input args does not equal", expectedNumOfArgs)
 		os.Exit(1)
 	}
 
