@@ -1,8 +1,6 @@
 # Go Programming
 
-## Udemy
-
-Go: The Comple Developer's Guide (Golang) by Stephen Grider.
+Go: The Comple Developer's Guide (Golang) by Stephen Grider (Udemy).
 
 This course is an introduction to Google's Go for
 programmers coming from other languages.
