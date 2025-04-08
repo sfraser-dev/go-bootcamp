@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bitbucket.org/weebucket/go_bootcamp"
+	"github.com/sfraser-dev/go-bootcamp"
 	"fmt"
 	"math/rand"
 	"strings"
